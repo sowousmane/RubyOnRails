@@ -6,19 +6,16 @@ application up and running.
 Things you may want to cover:
 
 * Ruby version
+- Ruby 2.7.3
+*Rails version
+-Rails 6.1.4
 
-* System dependencies
 
-* Configuration
 
 * Database creation
+-rails db:seed
 
-* Database initialization
 
-* How to run the test suite
+* How to run the project
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+-rails s as rails server
