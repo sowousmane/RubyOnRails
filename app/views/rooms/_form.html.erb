@@ -1,0 +1,43 @@
+<%= form_with(model: room) do |form| %>
+  <% if room.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(room.errors.count, "error") %> prohibited this room from being saved:</h2>
+
+      <ul>
+        <% room.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= form.label :Building_id %>
+    <% 
+      lines_options = []
+      options = ["Choose your Building"]
+      @buildings.each do |b|
+        lines_options.push b.name
+        lines_options.push b.id
+        options.push lines_options
+        lines_options = []
+      end 
+    %>
+    <%= 
+      form.select :Building_id, 
+      options_for_select(options) 
+    %>
+  </div>
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
